@@ -1,0 +1,138 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Container styling */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+/* Header styling */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* File input container */
+.file-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Styling for the submit button */
+.submit-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Submit button hover effect */
+.submit-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Image preview container */
+#image-preview-container {
+    margin-top: 30px;
+}
+
+/* Image preview styling */
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Hashtag container styling */
+#hashtag-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Styling for individual hashtags */
+.hashtag-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hashtag button hover effect */
+.hashtag-btn:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+}
+
+/* Selected hashtag button styling */
+.hashtag-btn.selected {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #45a049;
+}
+
+/* Styling for selected hashtags text area */
+#selected-hashtags {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    margin-top: 30px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    resize: none;
+    box-sizing: border-box;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+
+    .hashtag-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    #selected-hashtags {
+        font-size: 14px;
+    }
+}

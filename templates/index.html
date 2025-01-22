@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hashtag Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered Hashtag Generator</h1>
+
+        <!-- Image Upload Section -->
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="file-input">
+                <input type="file" name="image" id="image" accept="image/*" required>
+                <button type="submit" class="submit-btn">Generate Hashtags</button>
+            </div>
+        </form>
+
+        <!-- Image Preview Section -->
+        <div id="image-preview-container">
+            {% if base64_image %}
+                <img id="image-preview" src="data:image/jpeg;base64,{{ base64_image }}" alt="Uploaded Image Preview">
+            {% endif %}
+        </div>
+
+        <!-- Hashtag Generation Section -->
+        <div id="hashtag-container">
+            {% if hashtags %}
+                {% for hashtag in hashtags %}
+                    <button class="hashtag-btn">{{ hashtag }}</button>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- Selected Hashtags Section -->
+        <textarea id="selected-hashtags" placeholder="Selected Hashtags will appear here..." readonly></textarea>
+    </div>
+
+    <script>
+        // Enable interactivity for selecting hashtags
+        const hashtagButtons = document.querySelectorAll('.hashtag-btn');
+        const selectedHashtagsTextarea = document.getElementById('selected-hashtags');
+
+        hashtagButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('selected');
+                updateSelectedHashtags();
+            });
+        });
+
+        function updateSelectedHashtags() {
+            const selectedHashtags = [];
+            hashtagButtons.forEach(button => {
+                if (button.classList.contains('selected')) {
+                    selectedHashtags.push(button.textContent);
+                }
+            });
+            selectedHashtagsTextarea.value = selectedHashtags.join(' ');
+        }
+    </script>
+</body>
+</html>
